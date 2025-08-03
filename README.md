@@ -45,3 +45,17 @@ This is a voice-first medical assistant built with **Retell AI**, designed for *
 - Tweak the prompt or the built-in Cal-integrated functions because sometimes it would need another response from the user before calling the functions.
 - Handle cases where the user needs to be redirected to a real person via different phone number/email if the AI cannot solve what the user wants/system down.
 - Build a better pipeline to import data straight into google sheets after the chat ends.
+
+## 5. To Test
+- Clone this repository
+   ```bash
+   git clone https://github.com/your-org/medme-chat-widget.git
+   cd medme-chat-widget
+   
+- Start a local server
+  If you have Python installed:
+  ```bash
+  python3 -m http.server 8080
+
+- To chat with your local chat widget, go to http://localhost:8080
+  
