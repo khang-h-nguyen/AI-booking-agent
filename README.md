@@ -49,8 +49,8 @@ This is a voice-first medical assistant built with **Retell AI**, designed for *
 ## 5. To Test
 - Clone this repository
    ```bash
-   git clone https://github.com/your-org/medme-chat-widget.git
-   cd medme-chat-widget
+   git clone https://github.com/khang-h-nguyen/AI-booking-agent.git
+   cd AI-booking-agent
    
 - Start a local server
   If you have Python installed:
