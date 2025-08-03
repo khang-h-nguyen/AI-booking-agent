@@ -1,17 +1,18 @@
 # 💬 MedMe Virtual Assistant (Voice & Chat)
 
-This is a voice-first medical assistant built with **Retell AI**, designed for **MedMe Pharmacies**. It handles bookings, rescheduling, and cancellations over the phone or via embedded chat. The assistant integrates with **Cal** for scheduling and **Make** for backend workflows like logging and appointment updates.
+This is a voice-ready medical assistant built with **Retell AI**, designed for **MedMe Pharmacies**. It handles bookings, rescheduling, and cancellations over chat but can be quickly re-adapted to handle phone calls. The assistant integrates with **Cal** for scheduling and **Make** for backend workflows like appointment updates.
 
 ---
 
 ## 1. Architecture & Key Components
 
 - **Agent Type**: Single Prompt Voice Agent via Retell AI
-- **Channels**: Phone (primary), Chat Widget (embedded via JS)
+- **Channels**: Chat Widget (primary), can be adapted to Phone
 - **Intent Routing**: Booking / Rescheduling / Cancellation
 - **External APIs**:
   - `check_availability_cal`
   - `book_appointment_cal`
+  - Cal's Reschedule and Cancel API
 - **Automation via Make**:
   - Trigger flows for rescheduling, cancellations, and logging
 - **Fallbacks**:
@@ -35,15 +36,16 @@ This is a voice-first medical assistant built with **Retell AI**, designed for *
 | Scenario | Response |
 |----------|----------|
 | Time unavailable | Suggest next 3 available slots using `check_availability_cal` |
-| Missing phone (in chat) | Prompt user: “What’s the best number to reach you at?” → store as `user_phone` |
+| Missing phone (in chat) | Prompt user: “What’s the best number to reach you at?” → store as `phone` |
 | User wants to reschedule/cancel a booking that is not theirs | Prompt user: "Are you sure you didn't book under a different number?" |
 
 ---
 
 ## 4. "If I Had More Time..."
 
+- Handle cases where a time slot can have more than 1 booking.
 - Tweak the prompt or the built-in Cal-integrated functions because sometimes it would need another response from the user before calling the functions.
-- Handle cases where the user needs to be redirected to a real person via different phone number/email if the AI cannot solve what the user wants/system down.
+- Handle cases where the user needs to be redirected to a real person via different phone number/email if the AI cannot solve what the user wants/system is down.
 - Build a better pipeline to import data straight into google sheets after the chat ends.
 
 ## 5. To Test
